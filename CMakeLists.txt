@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-project(libubx C CXX)
+project(libubx C)
 
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake_modules/")
 include(GNUInstallDirs)
@@ -8,7 +8,7 @@ include(GNUInstallDirs)
 find_package(M REQUIRED)
 find_package(Threads REQUIRED)
 
-
+set (CMAKE_C_STANDARD 11)
 set(LIB_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 set(UBX_VERSION_MAJOR 1)
 set(UBX_VERSION_MINOR 1)
@@ -146,7 +146,7 @@ include_directories(
 include_directories(${CMAKE_INCLUDE_PATH})
 link_directories(${CMAKE_LIBRARY_PATH})
 
-add_library(ubx SHARED ${SOURCES})
+add_library(ubx STATIC ${SOURCES})
 set_target_properties(ubx PROPERTIES VERSION ${UBX_VERSION} SOVERSION ${UBX_SOVERSION})
 
 target_link_libraries(ubx ${M_LIB})

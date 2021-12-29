@@ -26,7 +26,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#include <sys/types.h>
+#include <u_error_common.h>
 /* ----------------------------------------------------------------
  * COMPILE-TIME MACROS
  * -------------------------------------------------------------- */
